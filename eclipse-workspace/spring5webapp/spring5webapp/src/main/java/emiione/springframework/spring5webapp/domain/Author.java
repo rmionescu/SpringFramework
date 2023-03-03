@@ -1,5 +1,6 @@
 package emiione.springframework.spring5webapp.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -18,16 +19,20 @@ public class Author {
 	private String lastName;
 
 	@ManyToMany(mappedBy = "authors")
-	private Set<Book> books;
+	private Set<Book> books = new HashSet<>();
 
 	// Constructors
 	public Author() {
 	};
 
-	public Author(String firstName, String lastName, Set<Book> books) {
+//	public Author(String firstName, String lastName, Set<Book> books) {
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.books = books;
+//	}
+	public Author(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.books = books;
 	}
 
 	// Getters and Setters
